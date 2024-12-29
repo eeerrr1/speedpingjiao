@@ -43,9 +43,20 @@ const textboxes = document.querySelectorAll('input[type="text"], textarea');
 // 遍历每个文本框并填写“示例文本”
 textboxes.forEach(textbox => {
   textbox.value = '示例文本';
+  
+  // 创建并触发输入事件
+  const inputEvent = new Event('input', { bubbles: true });
+  const changeEvent = new Event('change', { bubbles: true });
+  
+  // 使用 setTimeout 延迟触发事件
+  setTimeout(() => {
+    textbox.dispatchEvent(inputEvent);
+    textbox.dispatchEvent(changeEvent);
+  }, 100);
 });
 
-console.log('所有文本框已填写“示例文本”');
+console.log('所有文本框已填写“示例文本”并触发了输入和变更事件');
+
 ```
 
 请将其中的 textbox.value = '示例文本'; 中的示例文本替换为评教的文字内容，例如
@@ -82,8 +93,19 @@ const textboxes = document.querySelectorAll('input[type="text"], textarea');
 // 遍历每个文本框并填写“示例文本”
 textboxes.forEach(textbox => {
   textbox.value = '教师通过对课本的独到深入的讲解，达到了很好的教学效果，能结合多种教学手段，使学生对知识的掌握更深刻。教学内容重点突出，教学目的十分明确，教师具有极高的专业技能。';
+  
+  // 创建并触发输入事件
+  const inputEvent = new Event('input', { bubbles: true });
+  const changeEvent = new Event('change', { bubbles: true });
+  
+  // 使用 setTimeout 延迟触发事件
+  setTimeout(() => {
+    textbox.dispatchEvent(inputEvent);
+    textbox.dispatchEvent(changeEvent);
+  }, 100);
 });
 
-console.log('所有文本框已填写“示例文本”');
+console.log('所有文本框已填写“示例文本”并触发了输入和变更事件');
+
 ```
 
